@@ -4,7 +4,7 @@ namespace VoidAggregator.Bl.Dtos
 {
     public class AuthorWithRoleDto
     {
-        public int Id { get; set; }
+        public int AuthorId { get; set; }
         public AuthorRole AuthorRole { get; set; }
     }
 }

@@ -24,7 +24,7 @@ namespace VoidAggregator.Bl.Services
             var release = _mapper.Map<Release>(releaseDto);
             release.CoverImagePath = await _blobStorage.AddItem(releaseDto.CoverImage);
 
-            for(int i = 0; i<releaseDto.Songs.Count; i++)  
+            for (int i = 0; i < releaseDto.Songs.Count; i++)
             {
                 release.Songs[i].SongContentPath = await _blobStorage.AddItem(releaseDto.Songs[i].SongContent);
             }
