@@ -21,7 +21,7 @@ namespace VoidAggregator.Api.Controllers
 
         [HttpPost]
         [Route("create")]
-        public async Task<Release> CreateRelease([FromBody] Release release)
+        public async Task<ActionResult<Release>> CreateRelease([FromBody] Release release)
         {
             var releaseDto = _mapper.Map<ReleaseDto>(release);
 
@@ -29,7 +29,7 @@ namespace VoidAggregator.Api.Controllers
 
             var result = _mapper.Map<Release>(resultDto);
 
-            return result;
+            return Ok(result) ;
         }
     }
 }
