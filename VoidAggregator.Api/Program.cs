@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Identity;
 using VoidAggregator.Bl;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,6 +21,11 @@ if (app.Environment.IsDevelopment())
 {
 	app.UseSwagger();
 	app.UseSwaggerUI();
+}
+
+using(var serviceScope = (app as IApplicationBuilder).ApplicationServices.GetService<IServiceScopeFactory>()!.CreateScope())
+{
+	serviceScope.TryAddDb();
 }
 
 app.UseHttpsRedirection();

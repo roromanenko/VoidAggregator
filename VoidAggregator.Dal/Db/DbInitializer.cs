@@ -1,8 +1,8 @@
 ﻿namespace VoidAggregator.Dal.Db
 {
-	internal class DbInitializer
+	public class DbInitializer
 	{
-		internal static void Initialize(VoidAggregatorContext context)
+		public static void Initialize(VoidAggregatorContext context)
 		{
 			context.Database.EnsureCreated();
 		}
