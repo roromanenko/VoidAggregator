@@ -28,7 +28,7 @@ namespace VoidAggregator.Bl.Services
             {
                 release.Songs[i].SongContentPath = await _blobStorage.AddItem(releaseDto.Songs[i].SongContent);
             }
-            var result = await _realeaseRepository.CreateRelease(release);
+            var result = await _realeaseRepository.Create(release);
             return _mapper.Map<ReleaseDto>(result);
         }
     }

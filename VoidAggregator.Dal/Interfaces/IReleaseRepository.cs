@@ -2,9 +2,9 @@
 
 namespace VoidAggregator.Dal.Interfaces
 {
-    public interface IReleaseRepository
-    {
-        public Task<Release> CreateRelease(Release release);
+	public interface IReleaseRepository
+	{
+		public Task<Release> Create(Release release);
 
-    }
+	}
 }

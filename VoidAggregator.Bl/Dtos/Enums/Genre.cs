@@ -2,7 +2,7 @@
 {
     public enum Genre
     {
-        Afoxe,
+        Afoxe = 1,
         AlternativeRockinSpanish,
         Ambient,
         Americana,
