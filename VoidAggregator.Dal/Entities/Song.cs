@@ -12,6 +12,6 @@ namespace VoidAggregator.Dal.Entities
         public string SongContentPath { get; set; }
 		public int ReleaseId { get; set; }
 		public Release Release { get; set; }
-		public List<AuthorSong> AuthorsSongs { get; set; }
+		public List<AuthorSong> AuthorsSongs { get; set; } = new List<AuthorSong>();
 	}
 }
