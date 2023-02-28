@@ -7,7 +7,7 @@ namespace VoidAggregator.Bl.Dtos
         public int Id { get; set; }
         public string SongName { get; set; }
         public List<AuthorSongDto> AuthorsSongs { get; set; } = new List<AuthorSongDto>();
-        public Language Language { get; set; }
+        public LanguageDto Language { get; set; }
         public string SongText { get; set; }
         public bool IsExplicitContent { get; set; }
         public byte[] SongContent { get; set; }

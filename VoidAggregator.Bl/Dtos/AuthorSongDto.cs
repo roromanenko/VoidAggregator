@@ -6,6 +6,6 @@ namespace VoidAggregator.Bl.Dtos
     {
         public AuthorDto Author { get; set; }
         public SongDto Song { get; set; }
-        public AuthorRole AuthorRole { get; set; }
+        public AuthorRoleDto AuthorRole { get; set; }
     }
 }

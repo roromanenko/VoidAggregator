@@ -1,6 +1,6 @@
 ﻿namespace VoidAggregator.Bl.Dtos.Enums
 {
-    public enum Genre
+    public enum GenreDto
     {
         Afoxe = 1,
         AlternativeRockinSpanish,

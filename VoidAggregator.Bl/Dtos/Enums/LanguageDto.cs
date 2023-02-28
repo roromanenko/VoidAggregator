@@ -1,6 +1,6 @@
 ﻿namespace VoidAggregator.Bl.Dtos.Enums
 {
-    public enum Language
+    public enum LanguageDto
     {
 		Ukr = 1,
 		Rus

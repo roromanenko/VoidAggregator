@@ -1,6 +1,6 @@
 ﻿namespace VoidAggregator.Bl.Dtos.Enums
 {
-    public enum AuthorRole
+    public enum AuthorRoleDto
     {
         Performer = 1,
 		Featuring,
