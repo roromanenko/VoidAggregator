@@ -20,7 +20,7 @@ namespace VoidAggregator.Dal.Db
 		{
 			base.OnModelCreating(modelBuilder);
 
-			modelBuilder.Entity<Release>()
+            modelBuilder.Entity<Release>()
 				.HasOne(r => r.Author)
 				.WithMany(a => a.Releases)
 				.HasForeignKey(r => r.AuthorId)
@@ -42,13 +42,15 @@ namespace VoidAggregator.Dal.Db
 				.HasOne(@as => @as.Author)
 				.WithMany(a => a.AuthorsSongs)
 				.HasForeignKey(@as => @as.AuthorId)
-				.IsRequired(true);
+				.IsRequired(true)
+				.OnDelete(DeleteBehavior.NoAction);
 
 			modelBuilder.Entity<AuthorSong>()
 				.HasOne(@as => @as.Song)
 				.WithMany(s => s.AuthorsSongs)
 				.HasForeignKey(@as => @as.SongId)
-				.IsRequired(true);
-		}
+				.IsRequired(true)
+				.OnDelete(DeleteBehavior.NoAction);
+        }
 	}
 }

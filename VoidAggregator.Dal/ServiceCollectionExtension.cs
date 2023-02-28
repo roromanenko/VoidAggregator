@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using VoidAggregator.Dal.Db;
+using VoidAggregator.Dal.Entities.Users;
 
 namespace VoidAggregator.Dal
 {
@@ -14,6 +15,12 @@ namespace VoidAggregator.Dal
 			{
 				options.UseSqlServer(configuration.GetConnectionString("DbConnectionString"));
 			});
+
+			services.AddIdentityCore<ApplicationUser>(opt =>
+			{
+				opt.User.RequireUniqueEmail = true;
+			})
+				.AddEntityFrameworkStores<VoidAggregatorContext>();
 		}
 	}
 }
