@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using VoidAggregator.Bl.Dtos;
 using VoidAggregator.Bl.Interfaces;
+using VoidAggregator.Dal;
 using VoidAggregator.Dal.Entities;
 using VoidAggregator.Dal.Interfaces;
 
@@ -9,13 +10,13 @@ namespace VoidAggregator.Bl.Services
     public class ReleaseService : IReleaseService
     {
         private readonly IMapper _mapper;
-        private readonly IReleaseRepository _realeaseRepository;
+        private readonly DbFacade _dbFacade;
         private readonly IBlobStorage _blobStorage;
 
-        public ReleaseService(IMapper mapper, IReleaseRepository realeaseRepository, IBlobStorage blobStorage)
+        public ReleaseService(IMapper mapper, DbFacade dbFacade, IBlobStorage blobStorage)
         {
             _mapper = mapper;
-            _realeaseRepository = realeaseRepository;
+            _dbFacade = dbFacade;
             _blobStorage = blobStorage;
         }
 
@@ -28,7 +29,8 @@ namespace VoidAggregator.Bl.Services
             {
                 release.Songs[i].SongContentPath = await _blobStorage.AddItem(releaseDto.Songs[i].SongContent);
             }
-            var result = await _realeaseRepository.Create(release);
+            var result = await _dbFacade.ReleaseRepository.Create(release);
+            await _dbFacade.SaveChangesAsync();
             return _mapper.Map<ReleaseDto>(result);
         }
     }

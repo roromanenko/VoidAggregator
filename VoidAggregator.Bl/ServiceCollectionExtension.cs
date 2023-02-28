@@ -9,6 +9,8 @@ using VoidAggregator.Bl.Services;
 using VoidAggregator.Dal;
 using VoidAggregator.Dal.Db;
 using VoidAggregator.Dal.Entities.Users;
+using VoidAggregator.Dal.Interfaces;
+using VoidAggregator.Dal.Repositories;
 
 namespace VoidAggregator.Bl
 {
@@ -21,6 +23,8 @@ namespace VoidAggregator.Bl
 
 			services.AddScoped<IReleaseService, ReleaseService>();
 			services.AddScoped<IBlobStorage, LocalFileBlobStorage>();
+			services.AddScoped<IReleaseRepository, ReleaseRepository>();
+			services.AddScoped<DbFacade>();
 		}
 
 		public static void TryAddDb(this IServiceScope serviceScope)
