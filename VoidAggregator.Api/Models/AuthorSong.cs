@@ -1,10 +1,12 @@
 ﻿using VoidAggregator.Api.Models.Enums;
+using VoidAggregator.Bl.Dtos;
 
 namespace VoidAggregator.Api.Models
 {
-    public class AuthorWithRole
+    public class AuthorSong
     {
-        public int AuthorId { get; set; }
+        public Author Author { get; set; }
+        public Song Song { get; set; }
         public AuthorRole AuthorRole { get; set; }
     }
 }

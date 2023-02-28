@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using VoidAggregator.Dal.Entities.Enums;
+﻿using VoidAggregator.Dal.Entities.Enums;
 using VoidAggregator.Dal.Entities.Users;
 
 namespace VoidAggregator.Dal.Entities

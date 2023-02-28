@@ -10,7 +10,7 @@ namespace VoidAggregator.Api.Models
         public Genre Genre { get; set; }
         public List<Song> Songs { get; set; } = new List<Song>();
         public Language Language { get; set; }
-        public int LabelId { get; set; }
+        public Label Label { get; set; }
         public byte[] CoverImage { get; set; }
 }
 }

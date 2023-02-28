@@ -2,6 +2,9 @@
 {
     public enum AuthorRole
     {
-        Performer, Featuring, Remixer, Producer
+        Performer, 
+        Featuring, 
+        Remixer, 
+        Producer
     }
 }
