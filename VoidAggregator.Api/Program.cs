@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+using VoidAggregator.Api;
 using VoidAggregator.Bl;
 using VoidAggregator.Bl.Settings;
 
@@ -17,7 +19,10 @@ services.AddAutoMapper(config =>
 	config.AddProfile<VoidAggregator.Bl.AutomapperProfile>();
 });
 
-services.AddControllers();
+services.AddControllers().AddJsonOptions(opt =>
+{
+	opt.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+});
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 services.AddEndpointsApiExplorer();
 services.AddSwaggerGen();

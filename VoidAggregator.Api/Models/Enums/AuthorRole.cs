@@ -2,7 +2,7 @@
 {
     public enum AuthorRole
     {
-        Performer, 
+        Performer = 1, 
         Featuring, 
         Remixer, 
         Producer

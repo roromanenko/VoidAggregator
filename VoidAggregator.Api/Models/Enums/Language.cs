@@ -2,5 +2,7 @@
 {
     public enum Language
     {
-    }
+		Ukr = 1,
+		Rus
+	}
 }
