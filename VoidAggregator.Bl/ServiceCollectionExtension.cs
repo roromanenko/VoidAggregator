@@ -2,7 +2,8 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Identity.Client;
+using System.IdentityModel.Tokens.Jwt;
+using VoidAggregator.Bl.Authorization;
 using VoidAggregator.Bl.Infrastructure;
 using VoidAggregator.Bl.Interfaces;
 using VoidAggregator.Bl.Services;
@@ -23,15 +24,19 @@ namespace VoidAggregator.Bl
 
 			services.AddScoped<IReleaseService, ReleaseService>();
 			services.AddScoped<IBlobStorage, LocalFileBlobStorage>();
-			services.AddScoped<IReleaseRepository, ReleaseRepository>();
-			services.AddScoped<DbFacade>();
+
+			services.AddScoped<ITokenHelper, JwtTokenHelper>();
+			services.AddScoped(x => new JwtSecurityTokenHandler());
+			services.AddScoped<IUserService, UserService>();
 		}
 
 		public static void TryAddDb(this IServiceScope serviceScope)
 		{
 			var context = serviceScope.ServiceProvider.GetRequiredService<VoidAggregatorContext>();
+			var userManager = serviceScope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+			var roleManager = serviceScope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
 
-			DbInitializer.Initialize(context);
+			DbInitializer.Initialize(context, userManager, roleManager);
 		}
 
 		private static void AddDbContext(IServiceCollection services, IConfiguration configuration)
@@ -45,7 +50,11 @@ namespace VoidAggregator.Bl
 			{
 				opt.User.RequireUniqueEmail = true;
 			})
+				.AddRoles<IdentityRole>()
 				.AddEntityFrameworkStores<VoidAggregatorContext>();
+			services.AddScoped<IUserManager, UserManager>();
+			services.AddScoped<IReleaseRepository, ReleaseRepository>();
+			services.AddScoped<DbFacade>();
 		}
 	}
 }

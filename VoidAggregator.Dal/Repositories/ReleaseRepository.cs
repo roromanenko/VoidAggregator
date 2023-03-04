@@ -1,4 +1,5 @@
-﻿using VoidAggregator.Dal.Db;
+﻿using Microsoft.EntityFrameworkCore;
+using VoidAggregator.Dal.Db;
 using VoidAggregator.Dal.Entities;
 using VoidAggregator.Dal.Interfaces;
 
@@ -23,5 +24,14 @@ namespace VoidAggregator.Dal.Repositories
         {
             _dbContext.Dispose();
         }
-    }
+
+		public Task<List<Release>> GetReleases(string userId)
+		{
+			return _dbContext.Releases.Where(r => r.AuthorId == userId)
+				.Include(r => r.Author)
+				.Include(r => r.Songs)
+				.ThenInclude(s => s.AuthorsSongs)
+				.ToListAsync();
+		}
+	}
 }

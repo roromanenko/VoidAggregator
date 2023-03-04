@@ -1,7 +1,9 @@
-﻿namespace VoidAggregator.Bl.Dtos
+﻿using VoidAggregator.Dal;
+
+namespace VoidAggregator.Bl.Dtos
 {
-    public class LabelDto : UserDto
-    {
-        public List<AuthorDto> Authors { get; set; } = new List<AuthorDto>();
-    }
+	public class LabelDto : UserDto
+	{
+		public List<AuthorDto> Authors { get; set; } = new List<AuthorDto>();
+	}
 }
