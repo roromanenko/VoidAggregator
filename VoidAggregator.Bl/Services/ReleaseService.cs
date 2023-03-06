@@ -33,5 +33,12 @@ namespace VoidAggregator.Bl.Services
             await _dbFacade.SaveChangesAsync();
             return _mapper.Map<ReleaseDto>(result);
         }
-    }
+
+		public async Task<List<ReleaseDto>> GetReleases(string userId)
+		{
+			var releases = await _dbFacade.ReleaseRepository.GetReleases(userId);
+
+			return _mapper.Map<List<ReleaseDto>>(releases);
+		}
+	}
 }

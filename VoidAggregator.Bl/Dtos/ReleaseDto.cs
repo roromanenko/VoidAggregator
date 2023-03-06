@@ -7,10 +7,10 @@ namespace VoidAggregator.Bl.Dtos
         public int Id { get; set; }
         public string ReleaseName { get; set; }
         public AuthorDto Author { get; set; }
-        public GenreDto Genre { get; set; }
+		public string AuthorId { get; set; }
+		public GenreDto Genre { get; set; }
         public List<SongDto> Songs { get; set; } = new List<SongDto>();
         public LanguageDto Language { get; set; }
-        public LabelDto Label { get; set; }
-        public byte[] CoverImage { get; set; }
+		public byte[] CoverImage { get; set; }
     }
 }

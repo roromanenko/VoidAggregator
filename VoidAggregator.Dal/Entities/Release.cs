@@ -12,6 +12,6 @@ namespace VoidAggregator.Dal.Entities
         public Genre Genre { get; set; }
         public List<Song> Songs { get; set; } = new List<Song>();
         public Language Language { get; set; }
-        public string CoverImagePath { get; set; }
+		public string CoverImagePath { get; set; }
     }
 }
