@@ -37,8 +37,14 @@ namespace VoidAggregator.Bl.Services
 		public async Task<List<ReleaseDto>> GetReleases(string userId)
 		{
 			var releases = await _dbFacade.ReleaseRepository.GetReleases(userId);
+			var releasesDto = _mapper.Map<List<ReleaseDto>>(releases);
 
-			return _mapper.Map<List<ReleaseDto>>(releases);
+			for(int i = 0; i < releases.Count; i++)
+			{
+				releasesDto[i].CoverImage = await _blobStorage.GetItem(releases[i].CoverImagePath);
+			}
+
+			return releasesDto;
 		}
 	}
 }
