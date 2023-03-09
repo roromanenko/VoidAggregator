@@ -10,7 +10,8 @@ namespace VoidAggregator.Dal.Entities
         public string SongText { get; set; }
         public bool IsExplicitContent { get; set; }
         public string SongContentPath { get; set; }
-		public int ReleaseId { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public int ReleaseId { get; set; }
 		public Release Release { get; set; }
 		public List<AuthorSong> AuthorsSongs { get; set; } = new List<AuthorSong>();
 	}

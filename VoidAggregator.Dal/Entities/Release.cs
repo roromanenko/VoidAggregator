@@ -13,5 +13,6 @@ namespace VoidAggregator.Dal.Entities
         public List<Song> Songs { get; set; } = new List<Song>();
         public Language Language { get; set; }
 		public string CoverImagePath { get; set; }
+        public DateTime CreatedDate { get; set; }
     }
 }

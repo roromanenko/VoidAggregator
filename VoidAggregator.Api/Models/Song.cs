@@ -11,5 +11,8 @@ namespace VoidAggregator.Api.Models
         public string? SongText { get; set; }
         public bool? IsExplicitContent { get; set; }
         public byte[]? SongContent { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public int ReleaseId { get; set; }
+        public Release Release { get; set; }
     }
 }

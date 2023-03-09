@@ -29,8 +29,6 @@ namespace VoidAggregator.Dal.Repositories
 		{
 			return _dbContext.Releases.Where(r => r.AuthorId == userId)
 				.Include(r => r.Author)
-				.Include(r => r.Songs)
-				.ThenInclude(s => s.AuthorsSongs)
 				.ToListAsync();
 		}
 	}

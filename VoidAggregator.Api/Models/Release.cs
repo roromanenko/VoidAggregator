@@ -12,5 +12,6 @@ namespace VoidAggregator.Api.Models
         public List<Song> Songs { get; set; } = new List<Song>();
         public Language? Language { get; set; }
 		public byte[]? CoverImage { get; set; }
-}
+        public DateTime CreatedDate { get; set; }
+    }
 }

@@ -11,5 +11,8 @@ namespace VoidAggregator.Bl.Dtos
         public string SongText { get; set; }
         public bool IsExplicitContent { get; set; }
         public byte[] SongContent { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public int ReleaseId { get; set; }
+        public ReleaseDto Release { get; set; }
     }
 }

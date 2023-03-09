@@ -12,5 +12,6 @@ namespace VoidAggregator.Bl.Dtos
         public List<SongDto> Songs { get; set; } = new List<SongDto>();
         public LanguageDto Language { get; set; }
 		public byte[] CoverImage { get; set; }
+        public DateTime CreatedDate { get; set; }
     }
 }
